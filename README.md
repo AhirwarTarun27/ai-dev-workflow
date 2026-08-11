@@ -21,7 +21,7 @@ Then, in each new repository:
 ## The loop
 
 ```
-/devflow:kickoff MP-1234     spec -> research -> plan
+/devflow:kickoff ABC-123     spec -> research -> plan
                              |
                         [ YOU APPROVE ]     <- the only gate
                              |
