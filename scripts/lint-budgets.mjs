@@ -28,7 +28,9 @@ for (const { dir, pattern, max, label } of BUDGETS) {
   for (const file of walk(base)) {
     if (!pattern.test(file)) continue;
     checked++;
-    const lines = readFileSync(file, "utf8").split("\n").length;
+    // A trailing newline terminates the last line rather than starting a new
+    // one, so do not let it count against the budget.
+    const lines = readFileSync(file, "utf8").replace(/\r?\n$/, "").split("\n").length;
     if (lines > max) {
       violations.push(
         `${relative(rootDir, file).replace(/\\/g, "/")}: ${lines} lines (${label} budget ${max})`

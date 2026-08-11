@@ -12,9 +12,8 @@ One expensive survey, three cheap consumers: the dossier feeds `CLAUDE.md`,
 `devloop.json`, and `/devflow:orient`. Do the reading once and do it properly.
 
 **Repo and local sources only.** Code, README, `docs/`, manifests, CI config and
-git history. Nothing leaves the machine. Links to trackers or wikis are recorded
-as links, never fetched. Anything the repo cannot tell you becomes a question for
-the team, not a guess.
+git history. Nothing leaves the machine; tracker and wiki links are recorded, not
+fetched. What the repo cannot tell you becomes a question for the team, not a guess.
 
 ## 1. Check state
 
@@ -23,7 +22,7 @@ already configured and stop. Do not silently redo the survey.
 
 ## 2. Survey — launch these scouts in parallel
 
-Give each `scout` ONE narrow question. Run them in a single message so they go
+Give each `scout` ONE narrow question, all in a single message so they run
 concurrently. Adapt the questions to what the repo actually is.
 
 1. **Architecture** — what are the top-level components, what runs as its own
@@ -34,16 +33,20 @@ concurrently. Adapt the questions to what the repo actually is.
    this system is *for*?
 3. **Flows** — find the 3–5 most significant user-facing entry points (routes,
    pages, commands, endpoints) and trace each one hop or two inward.
-4. **Run and test story** — how is this installed, built, run, tested, linted
-   and formatted? Read manifests, scripts, CI config, Dockerfiles, READMEs.
-   What is the local setup — env files, seed data, credentials, ports?
+4. **Prerequisites and run story** — the **exact versions** required and where
+   each is pinned (`.nvmrc`, `.tool-versions`, `global.json`, engines fields,
+   target frameworks, Dockerfile base images, and the CI matrix — CI is the most
+   honest source, since it is what actually builds). Global CLI tools, databases,
+   caches, container runtimes, ports. Then the install / build / run / test /
+   lint / format commands, env-file templates, seed data, and anything a
+   first-time setup needs that a returning developer would forget.
 5. **Conventions** — from the actual code, not from documentation: naming,
    file layout, error handling, state management, how new modules are
    registered. Find the most recently added feature and read it as the template.
 
-Then read directly yourself: the README, any `docs/`, and git history —
-`git log --oneline -n 200`, plus which directories change most. Churn is an
-honest map of what the business actually cares about.
+Then read directly yourself: the README, any `docs/`, and git history
+(`git log --oneline -n 200`, plus which directories churn most — an honest map
+of what the business cares about).
 
 ## 3. Write the dossier
 
@@ -54,15 +57,18 @@ To `.agent/project/`, each file under ~100 lines, every claim cited:
   Plain language, no code.
 - `architecture.md` — components, boundaries, data stores, external services.
 - `flows.md` — the main journeys, traced with `file:line`.
-- `running.md` — install, run, log in, seed, logs, debug. Exact commands.
+- `running.md` — **Prerequisites first**: every runtime, tool and service with
+  its exact required version and where that version is pinned. Then install,
+  run, log in, seed, logs, debug — exact commands. Flag separately anything only
+  a human can supply: VPN, credentials, data dumps, licences.
 - `conventions.md` — patterns observed in real code, with an exemplar path.
 - `open-questions.md` — **what the codebase could not answer.** Business rules
   with no visible source, unexplained config, dead-looking code, undocumented
   external dependencies. Phrase each as a question to ask a teammate.
 
 Business claims are the dangerous ones: architecture is checkable by reading
-code, but a wrong business claim is invisible to a newcomer. When evidence is
-thin, it belongs in `open-questions.md`, not stated as fact.
+code, a wrong business claim is invisible to a newcomer. Thin evidence belongs
+in `open-questions.md`, not stated as fact.
 
 ## 4. Propose the contract
 
@@ -89,5 +95,6 @@ everywhere. If a `CLAUDE.md` already exists, propose additions; never overwrite.
 Append the contents of `${CLAUDE_PLUGIN_ROOT}/templates/gitignore-block.txt` to
 `.gitignore` (or `.git/info/exclude` if the repo's ignore file is off-limits).
 
-Report what you configured in five lines, then offer `/devflow:orient` to walk
-through the project, and flag the count of open questions.
+Report what you configured in five lines. Then offer `/devflow:setup` to get it
+actually running on this machine, and `/devflow:orient` to learn the project.
+Flag the count of open questions.

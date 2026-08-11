@@ -15,7 +15,8 @@ Then, in each new repository:
 
 ```
 /devflow:onboard      # survey the repo, set up the workflow
-/devflow:orient       # learn the project: business, architecture, flows, how to run it
+/devflow:setup        # check prerequisites against your machine, fix gaps, get it running
+/devflow:orient       # learn the project: business, architecture, flows, how it works
 ```
 
 ## The loop
