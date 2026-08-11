@@ -1,0 +1,20 @@
+{
+  "name": "devflow",
+  "version": "0.1.0",
+  "description": "A portable, tech-agnostic development workflow: onboard a repo, learn it, then research -> plan -> approve -> implement -> verify -> review -> ship -> compound.",
+  "author": {
+    "name": "Tarun Ahirwar",
+    "email": "codertarun328@gmail.com"
+  },
+  "homepage": "https://github.com/AhirwarTarun27/ai-dev-workflow",
+  "repository": "https://github.com/AhirwarTarun27/ai-dev-workflow",
+  "license": "MIT",
+  "keywords": [
+    "workflow",
+    "planning",
+    "code-review",
+    "onboarding",
+    "verification",
+    "tech-agnostic"
+  ]
+}

@@ -1,0 +1,65 @@
+# <Project name>
+
+<!--
+  Under 150 lines. This file is re-sent on EVERY request in every session, so it
+  is the most expensive text per token in the whole setup.
+
+  The test for each line: would removing it cause a mistake? If not, cut it.
+
+  Project facts only. Do NOT document the devflow workflow here — the plugin
+  carries that everywhere already, and duplicating it bloats every repo and goes
+  stale on the next plugin update.
+
+  Delete any section that does not apply. An empty heading is worse than no
+  heading.
+-->
+
+## What this is
+
+<Two or three sentences: what the system does and who uses it. Enough that an
+agent reading a file knows what domain it is in.>
+
+## Stack
+
+<Only versions that actually constrain the work — a framework major version, a
+language level, a runtime that pins syntax. Not the full dependency list.>
+
+## Layout
+
+<The handful of directories that matter, one line each. Not a full tree.>
+
+## How to run
+
+- Install: `<command>`
+- Run: `<command>`
+- Test: `<command>`
+- Build: `<command>`
+
+<Anything non-obvious about local setup: env files, seed data, ports, services
+that must be running first.>
+
+## Conventions
+
+<Patterns observed in the actual code, not aspirations. Each one specific enough
+to follow: "API handlers return Result<T>, never throw" beats "handle errors
+properly".>
+
+<For each, name an exemplar file to copy from.>
+
+## Never do
+
+<Things that look reasonable but break this codebase. Include the reason — a
+rule without its reason gets rationalised away.>
+
+<If a rule must ALWAYS hold, it belongs in a hook rather than here. Add its path
+to protectedPaths in .agent/devloop.json instead of writing it as prose.>
+
+## Gotchas
+
+<Non-obvious traps a newcomer hits. Keep this short; detailed learnings belong
+in .agent/learnings/.>
+
+## Domain vocabulary
+
+<Terms whose meaning here differs from the everyday sense, or that appear in
+code without explanation. Two columns: term, meaning.>

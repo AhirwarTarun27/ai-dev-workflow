@@ -1,0 +1,46 @@
+{
+  "$comment": [
+    "The per-project contract. Everything in devflow reads its commands from here,",
+    "which is what keeps skills, agents and hooks free of any hardcoded toolchain.",
+    "",
+    "A null command means this project has no such step. Consumers must treat null",
+    "as a silent skip, never an error.",
+    "",
+    "{file} is the only substitution token, and only in commands.format."
+  ],
+
+  "stack": "<free text, for humans: e.g. react + dotnet, django, go services>",
+  "root": ".",
+
+  "commands": {
+    "install": null,
+    "build": null,
+    "test": null,
+    "lint": null,
+    "typecheck": null,
+    "format": null,
+    "run": null
+  },
+
+  "verify": ["build", "lint"],
+
+  "testMode": "evidence",
+
+  "browser": {
+    "enabled": false,
+    "url": null
+  },
+
+  "protectedPaths": [],
+
+  "allowPaths": [],
+
+  "formatExtensions": [],
+
+  "verifyTimeoutMs": 600000,
+
+  "vcs": {
+    "host": "none",
+    "mainBranch": "main"
+  }
+}

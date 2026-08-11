@@ -1,0 +1,3 @@
+
+# devflow working artifacts (specs, research, plans, dossier, learnings)
+.agent/

@@ -1,0 +1,23 @@
+{
+  "name": "ai-dev-workflow",
+  "owner": {
+    "name": "Tarun Ahirwar",
+    "email": "codertarun328@gmail.com"
+  },
+  "description": "Tarun's portable, tech-agnostic AI development workflow for Claude Code.",
+  "plugins": [
+    {
+      "name": "devflow",
+      "source": "./",
+      "description": "A portable, tech-agnostic development workflow: onboard a repo, learn it, then research -> plan -> approve -> implement -> verify -> review -> ship -> compound.",
+      "category": "engineering",
+      "keywords": [
+        "workflow",
+        "planning",
+        "code-review",
+        "onboarding",
+        "tech-agnostic"
+      ]
+    }
+  ]
+}
