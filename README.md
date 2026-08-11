@@ -36,7 +36,25 @@ Then, in each new repository:
 `/devflow:explain` traces any existing feature, file or PR end to end, for when
 there is no ticket.
 
+`/devflow:notes` indexes what this repo has — past learnings, the dossier, work
+in flight, and which skills and agents are active (plugin vs repo-local).
+
 `/devflow:handoff` writes a structured summary before you clear context.
+
+## Extending it per repository
+
+Do not copy this plugin into a project. Add only what is new, and the two merge:
+
+```
+your-repo/
+  .mcp.json                        project MCP servers
+  .claude/skills/<name>/SKILL.md   repo-specific skill  -> /name
+  .claude/agents/<name>.md         repo-specific agent
+```
+
+Plugin skills are namespaced (`/devflow:plan`) and repo skills are not (`/plan`),
+so nothing collides. To switch a plugin skill off in one repo, put
+`{"skillOverrides": {"devflow:setup": "off"}}` in `.claude/settings.json`.
 
 ## How it stays tech-agnostic
 
