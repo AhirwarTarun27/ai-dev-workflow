@@ -53,7 +53,7 @@ IN FLIGHT
 
 SKILLS
   repo    /deploy-staging   deploy this service to staging
-  plugin  devflow:*         14 skills
+  plugin  devflow:*         15 skills
   plugin  mattpocock-skills:*  12 skills
 
 AGENTS

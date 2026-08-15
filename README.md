@@ -77,7 +77,7 @@ exists.
 
 ## Guardrails
 
-Three hooks, all deterministic code costing zero tokens. They no-op silently in
+Four hooks, all deterministic code costing zero tokens. They no-op silently in
 a repo that never ran onboard.
 
 | Hook | Does |
@@ -85,6 +85,7 @@ a repo that never ran onboard.
 | `PreToolUse` | Blocks edits to secrets, lockfiles, generated output and vendored code |
 | `PostToolUse` | Runs the project's own formatter on the file just edited |
 | `Stop` | Refuses to end the turn while the verify chain fails — armed only during `/devflow:implement` |
+| `SessionStart` | Injects the project's current state, so a session starts oriented |
 
 An instruction in `CLAUDE.md` is a request the model can ignore. A hook is not.
 

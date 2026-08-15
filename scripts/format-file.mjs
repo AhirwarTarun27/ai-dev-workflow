@@ -52,7 +52,7 @@ const res = spawnSync(command, {
 // Report only genuine formatter breakage, and even then do not block.
 if (res.status !== 0 && res.status !== null) {
   const detail = (res.stderr || res.stdout || "").trim().split("\n").slice(-3).join("\n");
-  if (detail) console.error(`devloop: formatter failed on ${rel}\n${detail}`);
+  if (detail) console.error(`devflow: formatter failed on ${rel}\n${detail}`);
 }
 
 process.exit(0);

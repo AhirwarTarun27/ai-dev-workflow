@@ -21,7 +21,7 @@ export function agentDir(root) {
 
 /**
  * Load .agent/devloop.json. Returns null when absent or unparseable so that
- * every hook can no-op silently in a repo that never ran /devloop:onboard.
+ * every hook can no-op silently in a repo that never ran /devflow:onboard.
  */
 export function loadContract(root) {
   const file = join(agentDir(root), "devloop.json");

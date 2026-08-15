@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # No dependencies to install: every script uses node: builtins only.
+      - name: Token budgets
+        run: node scripts/lint-budgets.mjs
+
+      - name: Hook tests
+        run: node --test tests/
